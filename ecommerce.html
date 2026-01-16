@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Photography - Sai Frames</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- SAME NAVBAR -->
+    <div class="space-bg"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Sai Frames</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- E-COMMERCE GRID GALLERY -->
+    <section class="gallery-page">
+        <div class="container">
+            <h1>E-commerce Photography</h1>
+            <a href="index.html#projects" class="back-btn">← Back to Projects</a>
+            <div class="image-grid" id="ecommerceGrid">
+                <!-- 9 Images loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ✅ E-COMMERCE IMAGES (9 IMAGES)
+        const ecommerceImages = [
+            'ecommerce1.jpg', 'ecommerce2.jpg', 'ecommerce3.jpg',
+            'ecommerce4.jpg', 'ecommerce5.jpg', 'ecommerce6.jpg',
+            'ecommerce7.jpg', 'ecommerce8.jpg', 'ecommerce9.jpg'
+        ];
+
+        const ecommerceGrid = document.getElementById('ecommerceGrid');
+
+        // ✅ Detect orientation (portrait if height > width)
+        function detectOrientation(img) {
+            if (img.naturalHeight && img.naturalWidth) {
+                if (img.naturalHeight > img.naturalWidth) {
+                    img.classList.add('portrait');
+                } else {
+                    img.classList.add('landscape');
+                }
+            } else {
+                // Cached image fallback
+                const tempImg = new Image();
+                tempImg.onload = () => {
+                    if (tempImg.naturalHeight > tempImg.naturalWidth) {
+                        img.classList.add('portrait');
+                    } else {
+                        img.classList.add('landscape');
+                    }
+                };
+                tempImg.src = img.src;
+            }
+        }
+
+        // ✅ Load grid + auto-detect orientations
+        ecommerceImages.forEach((imgSrc, index) => {
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'grid-image';
+            imageDiv.innerHTML = `
+        <img src="assets/images/${imgSrc}" alt="Corporate ${index + 1}" loading="lazy">`;
+            ecommerceGrid.appendChild(imageDiv);
+
+            // Apply orientation after load
+            const img = imageDiv.querySelector('img');
+            if (img.complete) {
+                detectOrientation(img);
+            } else {
+                img.addEventListener('load', () => detectOrientation(img));
+            }
+        });
+
+        // ✅ Zoom effects (unchanged)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.grid-image').forEach(image => {
+                image.addEventListener('mouseenter', () => image.classList.add('hovered'));
+                image.addEventListener('mouseleave', () => image.classList.remove('hovered'));
+                image.addEventListener('click', () => image.classList.toggle('clicked'));
+            });
+        });
+    </script>
+
+</body>
+
+</html>

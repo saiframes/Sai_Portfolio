@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Photography - Sai Frames</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- SAME NAVBAR -->
+    <div class="space-bg"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Sai Frames</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CORPORATE GRID GALLERY -->
+    <section class="gallery-page">
+        <div class="container">
+            <h1>Corporate Photography</h1>
+            <a href="index.html#projects" class="back-btn">← Back to Projects</a>
+            <div class="image-grid" id="corporateGrid">
+                <!-- Images loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const corporateImages = ['corporate1.jpg', 'corporate2.jpg', 'corporate3.jpg', 'corporate4.jpg', 'corporate5.jpg',
+            'corporate6.jpg', 'corporate7.jpg', 'corporate8.jpg', 'corporate9.jpg', 'corporate10.jpg',
+            'corporate11.jpg', 'corporate12.jpg', 'corporate13.jpg', 'corporate14.jpg', 'corporate15.jpg',
+            'corporate16.jpg'];
+
+        const corporateGrid = document.getElementById('corporateGrid');
+
+        // ✅ Detect orientation and add class (portrait/landscape)
+        function detectOrientation(img) {
+            if (img.naturalHeight && img.naturalWidth) {
+                if (img.naturalHeight > img.naturalWidth) {
+                    img.classList.add('portrait');
+                } else {
+                    img.classList.add('landscape');
+                }
+            } else {
+                // Fallback for cached images
+                const tempImg = new Image();
+                tempImg.onload = () => {
+                    if (tempImg.naturalHeight > tempImg.naturalWidth) {
+                        img.classList.add('portrait');
+                    } else {
+                        img.classList.add('landscape');
+                    }
+                };
+                tempImg.src = img.src;
+            }
+        }
+
+        // Load grid with orientation detection
+        corporateImages.forEach((imgSrc, index) => {
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'grid-image';
+            imageDiv.innerHTML = `
+        <img src="assets/images/${imgSrc}" alt="Corporate ${index + 1}" loading="lazy">
+       
+    `;
+            corporateGrid.appendChild(imageDiv);
+
+            // Detect after load
+            const img = imageDiv.querySelector('img');
+            if (img.complete) {
+                detectOrientation(img);
+            } else {
+                img.addEventListener('load', () => detectOrientation(img));
+            }
+        });
+
+        // Zoom effects (unchanged)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.grid-image').forEach(image => {
+                image.addEventListener('mouseenter', () => image.classList.add('hovered'));
+                image.addEventListener('mouseleave', () => image.classList.remove('hovered'));
+                image.addEventListener('click', () => image.classList.toggle('clicked'));
+            });
+        });
+    </script>
+
+</body>
+
+</html>
