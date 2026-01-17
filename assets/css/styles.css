@@ -538,10 +538,10 @@ html {
         url('../images/wedding1.jpg');
 }
 
-.event-bg::before {
+.Event-bg::before {
     background-image:
         linear-gradient(rgba(255, 200, 255, 0.25), rgba(255, 150, 200, 0.15)),
-        url('../images/event1.jpg');
+        url('../images/Event1.jpg');
 }
 
 /* 🔍 HOVER REVEALS MORE IMAGE */
