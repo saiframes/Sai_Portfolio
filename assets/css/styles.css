@@ -541,7 +541,7 @@ html {
 .event-bg::before {
     background-image:
         linear-gradient(rgba(255, 200, 255, 0.25), rgba(255, 150, 200, 0.15)),
-        url('../images/Event1.jpg');
+        url('../images/event1.jpg');
 }
 
 /* 🔍 HOVER REVEALS MORE IMAGE */
