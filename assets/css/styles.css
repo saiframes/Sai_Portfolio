@@ -984,6 +984,10 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    .nav-container {
+    position: relative;
+  }
+
       #home {
         padding-top: 120px;
     }
@@ -1011,6 +1015,7 @@ h2 {
 
         justify-content: center;
         align-items: center;
+        margin-left: auto;
 
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(10px);
@@ -1293,6 +1298,7 @@ html, body {
         display: none;
     }
 }
+
 
 
 
