@@ -427,23 +427,35 @@
             });
         });
 
-        // 📱 MOBILE HAMBURGER MENU
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
+      const mobileBtn = document.querySelector('.mobile-menu-btn');
+const navMenu = document.querySelector('.nav-menu');
 
-        if (mobileBtn && navMenu) {
-            mobileBtn.addEventListener('click', () => {
-                mobileBtn.classList.toggle('active');
-                navMenu.classList.toggle('mobile-open');
-            });
+if (mobileBtn && navMenu) {
 
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileBtn.classList.remove('active');
-                    navMenu.classList.remove('mobile-open');
-                });
-            });
+    // Toggle menu
+    mobileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileBtn.classList.toggle('active');
+        navMenu.classList.toggle('mobile-open');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileBtn.classList.remove('active');
+            navMenu.classList.remove('mobile-open');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+            mobileBtn.classList.remove('active');
+            navMenu.classList.remove('mobile-open');
         }
+    });
+}
+
 
         // ⚡ SMOOTH SCROLLING
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -523,3 +535,4 @@
 
 
 </html>
+
