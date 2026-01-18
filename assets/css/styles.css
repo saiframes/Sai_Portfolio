@@ -302,6 +302,7 @@ html {
     max-width: 900px;
     padding: 0 2rem;
     width: 100%;
+    margin-top: 80px;
 }
 
 .sai-content h1 {
@@ -1201,4 +1202,5 @@ h2 {
 @media (max-width: 1199px) {}
 
 /* Large screens */
+
 @media (min-width: 1440px) {}
