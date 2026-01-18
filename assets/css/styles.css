@@ -121,14 +121,13 @@ html {
     z-index: 1001;
 }
 
-.mobile-menu-btn span {
-    width: 25px;
-    height: 3px;
-    background: #00ff88;
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 2px;
-}
+.mobile-menu-btn span{
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #fff;
+        margin: 4px 0;
+    }
 
 .mobile-menu-btn.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
@@ -1001,12 +1000,26 @@ h2 {
 
     /* HAMBURGER BUTTON */
     .mobile-menu-btn {
-        display: flex;
+        display: flex !important;
+        position: fixed;
+        top: 18px;
+        right: 20px;
+        z-index: 2000;
+
+        width: 40px;
+        height: 40px;
+
+        justify-content: center;
+        align-items: center;
+
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
     }
 
     /* MENU OVERLAY */
-    .nav-menu {
-       position: fixed;
+  .nav-menu {
+        position: fixed;
         top: 0;
         left: 0;
         height: 100vh;
@@ -1280,5 +1293,6 @@ html, body {
         display: none;
     }
 }
+
 
 
