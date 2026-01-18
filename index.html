@@ -38,25 +38,24 @@
     </div>
 
     <!-- 🍔 MOBILE HAMBURGER -->
-   <nav class="navbar">
-  <div class="nav-container">
-    <a href="#home" class="logo">SAI FRAMES</a>
-
     <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-   </button>
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-    <ul class="nav-menu">
-      <li><a href="#home">HOME</a></li>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#projects">PROJECTS</a></li>
-      <li><a href="#contact">CONTACT</a></li>
-    </ul>
-         
-  </div>
-</nav>
+    <!-- 🌟 2025 GLASSMORPHISM NAVBAR -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="Sai Frames Home">SAI FRAMES</a>
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- 🚀 PARALLAX HERO WITH FLOATING PARTICLES -->
     <main id="main-content">
@@ -428,35 +427,23 @@
             });
         });
 
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-const navMenu = document.querySelector('.nav-menu');
+        // 📱 MOBILE HAMBURGER MENU
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
 
-if (mobileBtn && navMenu) {
+        if (mobileBtn && navMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileBtn.classList.toggle('active');
+                navMenu.classList.toggle('mobile-open');
+            });
 
-    // Toggle menu
-    mobileBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        mobileBtn.classList.toggle('active');
-        navMenu.classList.toggle('mobile-open');
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileBtn.classList.remove('active');
-            navMenu.classList.remove('mobile-open');
-        });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
-            mobileBtn.classList.remove('active');
-            navMenu.classList.remove('mobile-open');
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileBtn.classList.remove('active');
+                    navMenu.classList.remove('mobile-open');
+                });
+            });
         }
-    });
-}
-
 
         // ⚡ SMOOTH SCROLLING
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -534,8 +521,4 @@ if (mobileBtn && navMenu) {
     </script>
 </body>
 
-
 </html>
-
-
-
