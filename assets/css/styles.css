@@ -112,23 +112,14 @@ html {
 
 /* 📱 MOBILE HAMBURGER MENU */
 .mobile-menu-btn {
-    display: flex !important; /* FORCE SHOW BUTTON */
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
+    display: none;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    background: rgba(10, 10, 10, 0.9);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 255, 136, 0.3);
-    border-radius: 12px;
-    z-index: 2000;
+    background: none;
+    border: none;
     cursor: pointer;
-  }
+    padding: 1rem;
+    z-index: 1001;
+}
 
 .mobile-menu-btn span{
        display: block;
@@ -1251,4 +1242,3 @@ html, body {
     text-align: center;
   }
 }
-
