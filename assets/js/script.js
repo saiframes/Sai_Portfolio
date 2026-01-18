@@ -28,7 +28,7 @@ const projectImages = {
     wedding: ['wedding1.jpg', 'wedding2.jpg', 'wedding3.jpg'],
 
     // 9. event Photography (3 images)
-    Event: ['Event1.jpg', 'Event2.jpg', 'Event3.jpg']
+    event: ['event1.jpg', 'event2.jpg', 'event3.jpg']
 };
 
 const imageGrid = document.getElementById('imageGrid');
