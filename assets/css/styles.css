@@ -1299,10 +1299,35 @@ html, body {
     overflow-x: hidden;
 }
 @media (min-width: 769px) {
+@media (max-width: 768px) {
+
     .mobile-menu-btn {
-        display: none;
+        display: flex;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+    }
+
+    .mobile-menu-btn span {
+        display: block;
+        width: 26px;
+        height: 3px;
+
+        /* FORCE WHITE COLOR */
+        background-color: #ffffff !important;
+
+        margin: 5px 0;
+        border-radius: 3px;
+
+        /* FORCE VISIBILITY */
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        /* PREVENT BLENDING */
+        mix-blend-mode: normal;
     }
 }
+
 
 
 
