@@ -112,27 +112,36 @@ html {
 
 /* 📱 MOBILE HAMBURGER MENU */
 .mobile-menu-btn {
-    display: none;
+ 
+    display: flex;
     flex-direction: column;
-    background: none;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
     border: none;
     cursor: pointer;
-    padding: 1rem;
-    z-index: 1001;
+    z-index: 10000;
+
 }
 
-.mobile-menu-btn span{
-       display: block;
-        width: 26px;
-        height: 3px;
-        background-color: #ffffff;
-        margin: 5px 0;
-        border-radius: 3px;
-        box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
-    }
+.mobile-menu-btn span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
 
 .mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
@@ -140,7 +149,7 @@ html {
 }
 
 .mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .container {
@@ -303,7 +312,7 @@ html {
     max-width: 900px;
     padding: 0 2rem;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 .sai-content h1 {
@@ -1094,61 +1103,68 @@ h2 {
 /* Large screens */
 
 @media (min-width: 1440px) {}
-html, body {
+
+html,
+body {
     overflow-x: hidden;
 }
+
 @media (min-width: 769px) {}
+
 /* ===============================
    📱 MOBILE (≤768px) — CLEAN VERSION
    =============================== */
 @media (max-width: 768px) {
 
-  /* ===== NAVBAR ===== */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(14px);
-    z-index: 1000;
-  }
+    /* ===== NAVBAR ===== */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(14px);
+        z-index: 1000;
+    }
 
-  .nav-container {
-    position: relative;
-  }
+    .nav-container {
+        position: relative;
+    }
 
-  /* ===== HAMBURGER BUTTON ===== */
-  .mobile-menu-btn {
-    display: flex;
-    position: fixed;
-    top: 18px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
+    /* ===== HAMBURGER BUTTON ===== */
 
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
 
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    z-index: 2000;
-  }
+    .mobile-menu-btn span {
+        width: 26px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+    }
 
-  .mobile-menu-btn span {
-    width: 26px;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 3px;
-    box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
-  }
+    /* ===== MOBILE MENU OVERLAY ===== */
+    .nav-menu {
+        display: none;
+        /* HIDDEN BY DEFAULT */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
 
-  /* ===== MOBILE MENU OVERLAY ===== */
-  .nav-menu {
-    position: fixed;
+        background: rgba(0, 0, 0, 0.97);
+        backdrop-filter: blur(15px);
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        z-index: 9999;
+        /* ABOVE EVERYTHING */
+
+        /* position: fixed;
     inset: 0;
     display: flex;
     flex-direction: column;
@@ -1162,85 +1178,83 @@ html, body {
     transform: translateY(-100%);
     transition: transform 0.4s ease;
     pointer-events: none;
-    z-index: 1500;
-  }
+    z-index: 1500;*/
+    }
 
-  .nav-menu.mobile-open {
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+    .nav-menu.mobile-open {
+        display: flex;
+    }
 
-  .nav-menu a {
-    font-size: 1.3rem;
-    font-weight: 600;
-    padding: 0.8rem 0;
-  }
+    .nav-menu a {
+        color: #ffffff;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
 
-  /* ===== HERO ===== */
-  .sai {
-    padding-top: 80px;
-  }
+    /* ===== HERO ===== */
+    .sai {
+        padding-top: 80px;
+    }
 
-  .sai-content {
-    text-align: center;
-  }
+    .sai-content {
+        text-align: center;
+    }
 
-  .cta-button {
-    padding: 14px 28px;
-    font-size: 1rem;
-  }
+    .cta-button {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
 
-  /* ===== PROJECTS ===== */
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
-  }
+    /* ===== PROJECTS ===== */
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
 
-  .project-card {
-    height: 340px;
-  }
+    .project-card {
+        height: 340px;
+    }
 
-  /* ===== VIDEOS ===== */
-  .video-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2rem 0;
-  }
+    /* ===== VIDEOS ===== */
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem 0;
+    }
 
-  .video-card {
-    height: 280px;
-  }
+    .video-card {
+        height: 280px;
+    }
 
-  .play-button {
-    width: 60px;
-    height: 60px;
-    font-size: 1.3rem;
-  }
+    .play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
 
-  /* ===== GALLERIES ===== */
-  .image-grid,
-  #corporateGrid,
-  #ecommerceGrid,
-  #fashionGrid,
-  #naturalGrid,
-  #productGrid,
-  #sportsGrid,
-  #streetGrid,
-  #weddingGrid,
-  #eventGrid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
+    /* ===== GALLERIES ===== */
+    .image-grid,
+    #corporateGrid,
+    #ecommerceGrid,
+    #fashionGrid,
+    #naturalGrid,
+    #productGrid,
+    #sportsGrid,
+    #streetGrid,
+    #weddingGrid,
+    #eventGrid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
 
-  .grid-image {
-    height: 320px;
-  }
+    .grid-image {
+        height: 320px;
+    }
 
-  /* ===== CONTACT ===== */
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    text-align: center;
-  }
+    /* ===== CONTACT ===== */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        text-align: center;
+    }
 }
-
