@@ -122,16 +122,13 @@ html {
 }
 
 .mobile-menu-btn span{
-        display: block;
-        width: 22px;
-        height: 2px;
-       background-color: #ffffff !important;
-        border-radius: 2px;
-        margin: 4px 0;
-        box-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
-
-        opacity: 1 !important;
-        visibility: visible !important;
+       display: block;
+        width: 26px;
+        height: 3px;
+        background-color: #ffffff;
+        margin: 5px 0;
+        border-radius: 3px;
+        box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
     }
 
 .mobile-menu-btn.active span:nth-child(1) {
@@ -1022,7 +1019,7 @@ h2 {
         align-items: center;
         margin-left: auto;
 
-        background: rgba(0, 0, 0, 0.6);
+        background: transparent;
         backdrop-filter: blur(10px);
         border-radius: 10px;
          gap: 4px;
@@ -1304,6 +1301,7 @@ html, body {
         display: none;
     }
 }
+
 
 
 
