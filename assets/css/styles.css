@@ -89,7 +89,7 @@ html {
 
 .nav-menu a {
     position: relative;
-    color: #000;
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -1155,7 +1155,7 @@ html, body {
     align-items: center;
     gap: 1.5rem;
 
-    background: rgba(10, 10, 10, 0.92);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
 
     transform: translateY(-100%);
@@ -1242,4 +1242,3 @@ html, body {
     text-align: center;
   }
 }
-
