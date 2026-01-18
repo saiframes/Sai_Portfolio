@@ -302,7 +302,6 @@ html {
     max-width: 900px;
     padding: 0 2rem;
     width: 100%;
-    margin-top: 80px;
 }
 
 .sai-content h1 {
@@ -1035,7 +1034,6 @@ h2 {
         font-weight: 600;
     }
         .sai-content {
-        margin-top: 100px;
         text-align: center;
     }
       .project-grid {
@@ -1277,3 +1275,4 @@ h2 {
 html, body {
     overflow-x: hidden;
 }
+
