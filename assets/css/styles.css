@@ -125,8 +125,13 @@ html {
         display: block;
         width: 22px;
         height: 2px;
-        background: #fff;
+       background-color: #ffffff !important;
+        border-radius: 2px;
         margin: 4px 0;
+        box-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
+
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
 .mobile-menu-btn.active span:nth-child(1) {
@@ -1020,6 +1025,7 @@ h2 {
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(10px);
         border-radius: 10px;
+         gap: 4px;
     }
 
     /* MENU OVERLAY */
@@ -1298,6 +1304,7 @@ html, body {
         display: none;
     }
 }
+
 
 
 
